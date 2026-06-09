@@ -69,7 +69,8 @@ Run MyOOPProject.exe from the build output directory
 
 **Static Members** — Utils::saveScreenshot() and Utils::drawFPS() are static. No object needed, called directly as Utils::saveScreenshot(frame).
 
-**Destructors** — Application::~Application() logs the closing event and calls detector.printSummary(). CameraManager::~CameraManager() releases the VideoCapture resource.
+**Destructors** — Application::~Application() logs the closing event and calls detector.printSummary(). CameraManager::~CameraManager() releases the VideoCapture resource..
+
 
 **Exception Handling** — Application::run() wraps the entire loop in a try-catch block. CameraManager and FaceDetector throw std::runtime_error on construction failure.
 

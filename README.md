@@ -10,7 +10,7 @@ A real-time face detection application built in C++ using OpenCV. The webcam fee
 
 * Three switchable drawing modes — rectangle, circle, ellipse
 
-+ Live FPS counter and face count overlay
++ Live FPS counter and face count overlay    
 
 - Colour-coded progress bar (green to red, scales with face count)
 

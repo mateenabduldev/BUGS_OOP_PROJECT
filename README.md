@@ -60,4 +60,4 @@ File Handling — Logger appends every event to logs/log.txt using ofstream in i
 
 Static Members — Utils::saveScreenshot() and Utils::drawFPS() are static. No object needed, called directly as Utils::saveScreenshot(frame).
 
-Destructors — Application::~Application() logs the closing event and calls detector.printSummary(). CameraManager::~CameraManager() releases the VideoCapture resource.
+Destructors — Application::~Application() logs the closing event and calls detector.printSummary(). CameraManager::~CameraManager() releases the VideoCapture resource..

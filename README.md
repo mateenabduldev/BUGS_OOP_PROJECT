@@ -37,12 +37,15 @@ Visual Studio 2022 (MSVC)
 ## Build Instructions:
 
 Extract or clone the project folder
+
 Open the folder in Visual Studio 2022 — it auto-detects CMakeLists.txt
+
 If OpenCV is installed somewhere other than D:/opencv/build, update this line in CMakeLists.txt:
 
 set(OpenCV_DIR "D:/opencv/build")
 
 Select x64-Debug or x64-Release preset and build
+
 Run MyOOPProject.exe from the build output directory
 
 

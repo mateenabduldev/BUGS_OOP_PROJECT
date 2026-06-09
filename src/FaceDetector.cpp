@@ -4,7 +4,6 @@
 using namespace cv;
 using namespace std;
 
-// OVERLOADING
 FaceDetector::FaceDetector(string xmlPath) {
     scaleFactor = 1.1;
     minNeighbors = 4;
@@ -29,11 +28,8 @@ FaceDetector::FaceDetector(string xmlPath, double scale, int minN) {
     }
 }
 
-FaceDetector::~FaceDetector() {
-    // printSummary is now called explicitly from Application destructor
-}
+FaceDetector::~FaceDetector() {}
 
-// faces detector
 vector<Rect> FaceDetector::detectFaces(Mat frame) {
     vector<Rect> faces;
     Mat gray;
@@ -45,7 +41,6 @@ vector<Rect> FaceDetector::detectFaces(Mat frame) {
         scaleFactor,
         minNeighbors);
 
-    // update stats
     int count = (int)faces.size();
     totalDetections += count;
     if (count > maxFacesSeen)
@@ -54,7 +49,6 @@ vector<Rect> FaceDetector::detectFaces(Mat frame) {
     return faces;
 }
 
-// progress bar + stats overlay
 void FaceDetector::drawFeatures(Mat& frame, vector<Rect>& faces) {
     int count = (int)faces.size();
 
@@ -62,7 +56,6 @@ void FaceDetector::drawFeatures(Mat& frame, vector<Rect>& faces) {
     int green = 255 - red;
     Scalar color(0, green, red);
 
-    // progress bar
     int barW = 200;
     int filled = (min(count, 10) * barW) / 10;
 
@@ -75,7 +68,6 @@ void FaceDetector::drawFeatures(Mat& frame, vector<Rect>& faces) {
         Point(218, 124), FONT_HERSHEY_SIMPLEX, 0.5, color, 1);
 }
 
-// session summary
 void FaceDetector::printSummary() {
     int seconds = (int)difftime(time(0), sessionStart);
 
@@ -86,7 +78,6 @@ void FaceDetector::printSummary() {
     cout << "================================\n" << endl;
 }
 
-// GETTERS
 double FaceDetector::getScaleFactor() {
     return scaleFactor;
 }
@@ -95,7 +86,6 @@ int FaceDetector::getMinNeighbors() {
     return minNeighbors;
 }
 
-// SETTERS
 void FaceDetector::setScaleFactor(double scale) {
     if (scale > 1.0) {
         scaleFactor = scale;

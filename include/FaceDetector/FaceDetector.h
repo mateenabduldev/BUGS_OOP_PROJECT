@@ -4,10 +4,13 @@
 #include <string>
 #include <ctime>
 
+using namespace cv;
+using namespace std;
+
 class FaceDetector {
 
 private:
-    cv::CascadeClassifier faceCascade;
+    CascadeClassifier faceCascade;
     double scaleFactor;
     int minNeighbors;
     int totalDetections;
@@ -15,14 +18,13 @@ private:
     time_t sessionStart;
 
 public:
-    // CONSTRUCTOR OVERLOADING
-    FaceDetector(std::string xmlPath);
-    FaceDetector(std::string xmlPath, double scale, int minN);
+    FaceDetector(string xmlPath);
+    FaceDetector(string xmlPath, double scale, int minN);
 
     ~FaceDetector();
 
-    std::vector<cv::Rect> detectFaces(cv::Mat frame);
-    void drawFeatures(cv::Mat& frame, std::vector<cv::Rect>& faces);
+    vector<Rect> detectFaces(Mat frame);
+    void drawFeatures(Mat& frame, vector<Rect>& faces);
     void printSummary();
 
     // ENCAPSULATION - Getters

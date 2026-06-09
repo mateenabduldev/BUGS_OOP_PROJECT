@@ -2,13 +2,15 @@
 #include <opencv2/opencv.hpp>
 #include "ICameraSource.h"
 
+using namespace cv;
+
 class CameraManager : public ICameraSource
 {
 private:
-    cv::VideoCapture cap;
+    VideoCapture cap;
 
 public:
     CameraManager(int cameraNumber);
-    bool readFrame(cv::Mat& frame) override;
+    bool readFrame(Mat& frame) override;
     ~CameraManager();
 };

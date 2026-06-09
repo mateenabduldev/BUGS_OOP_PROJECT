@@ -4,9 +4,12 @@
 #include <string>
 #include "ShapeDrawer/ShapeDrawer.h"
 
+using namespace cv;
+using namespace std;
+
 class Mode {
 public:
-    virtual void draw(ShapeDrawer& drawer, cv::Mat& frame, std::vector<cv::Rect>& faces) = 0;
-    virtual std::string getName() = 0;
+    virtual void draw(ShapeDrawer& drawer, Mat& frame, vector<Rect>& faces) = 0;
+    virtual string getName() = 0;
     virtual ~Mode() {}
 };

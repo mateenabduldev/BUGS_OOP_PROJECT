@@ -3,11 +3,9 @@
 using namespace cv;
 using namespace std;
 
-Application::Application()
-    :
+Application::Application() :
     camera(0),
-    detector("data/models/haarcascade_frontalface_default.xml")
-{
+    detector("data/models/haarcascade_frontalface_default.xml") {
     currentMode = &rectangleMode;
     logger.log("Application Started");
 }

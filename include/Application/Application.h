@@ -16,6 +16,8 @@
 #include "CircleMode.h"
 #include "EllipseMode.h"
 
+using namespace cv;
+
 class Application {
 
 private:
@@ -32,7 +34,7 @@ private:
     CircleMode circleMode;
     EllipseMode ellipseMode;
 
-    cv::Mat frame;
+    Mat frame;
 
 public:
 

@@ -1,12 +1,15 @@
 #pragma once
 #include "Mode.h"
 
+using namespace cv;
+using namespace std;
+
 class CircleMode : public Mode {
 public:
-    void draw(ShapeDrawer& drawer, cv::Mat& frame, std::vector<cv::Rect>& faces) override {
+    void draw(ShapeDrawer& drawer, Mat& frame, vector<Rect>& faces) override {
         drawer.drawCircles(frame, faces);
     }
-    std::string getName() override {
+    string getName() override {
         return "Circle";
     }
 };

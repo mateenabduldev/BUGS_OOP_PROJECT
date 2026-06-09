@@ -1,28 +1,60 @@
 #pragma once
-#include "ShapeDrawerLib.h"
+#include <opencv2/opencv.hpp>
+#include <vector>
+#include <string>
 
-// ShapeDrawer is the facade used by Application
-// It holds the three concrete drawers and delegates based on active shape
+using namespace cv;
+using namespace std;
+
+class IShapeDrawer {
+public:
+    virtual void drawShape(Mat& frame, vector<Rect>& faces) = 0;
+    virtual void drawFaceCount(Mat& frame, int count) = 0;
+    virtual string getShapeName() const = 0;
+    virtual ~IShapeDrawer() {}
+};
+
+class RectangleDrawer : public IShapeDrawer {
+private:
+    Scalar color;
+public:
+    RectangleDrawer();
+    void setColor(Scalar newColor);
+    void drawShape(Mat& frame, vector<Rect>& faces) override;
+    void drawFaceCount(Mat& frame, int count) override;
+    string getShapeName() const override;
+};
+
+class CircleDrawer : public IShapeDrawer {
+private:
+    Scalar color;
+public:
+    CircleDrawer();
+    void setColor(Scalar newColor);
+    void drawShape(Mat& frame, vector<Rect>& faces) override;
+    void drawFaceCount(Mat& frame, int count) override;
+    string getShapeName() const override;
+};
+
+class EllipseDrawer : public IShapeDrawer {
+private:
+    Scalar color;
+public:
+    EllipseDrawer();
+    void setColor(Scalar newColor);
+    void drawShape(Mat& frame, vector<Rect>& faces) override;
+    void drawFaceCount(Mat& frame, int count) override;
+    string getShapeName() const override;
+};
+
 class ShapeDrawer {
 private:
     RectangleDrawer rectDrawer;
     CircleDrawer circleDrawer;
     EllipseDrawer ellipseDrawer;
-
 public:
-    void drawRectangles(cv::Mat& frame, std::vector<cv::Rect>& faces) {
-        rectDrawer.drawShape(frame, faces);
-    }
-
-    void drawCircles(cv::Mat& frame, std::vector<cv::Rect>& faces) {
-        circleDrawer.drawShape(frame, faces);
-    }
-
-    void drawEllipses(cv::Mat& frame, std::vector<cv::Rect>& faces) {
-        ellipseDrawer.drawShape(frame, faces);
-    }
-
-    void drawFaceCount(cv::Mat& frame, int count) {
-        rectDrawer.drawFaceCount(frame, count);
-    }
+    void drawRectangles(Mat& frame, vector<Rect>& faces);
+    void drawCircles(Mat& frame, vector<Rect>& faces);
+    void drawEllipses(Mat& frame, vector<Rect>& faces);
+    void drawFaceCount(Mat& frame, int count);
 };

@@ -3,23 +3,36 @@ Object Oriented Programming Project; Live Webcam Face Detection Using OpenCV
 
 A real-time face detection application built in C++ using OpenCV. The webcam feed is processed every frame to detect faces and overlay a shape around each one. The user can switch between rectangle, circle, and ellipse modes using the keyboard, save screenshots, and view live FPS and face count on screen.
 
+
 Features:
 
 Real-time face detection via Haar Cascade classifier 
+
 Three switchable drawing modes — rectangle, circle, ellipse
+
 Live FPS counter and face count overlay
+
 Colour-coded progress bar (green to red, scales with face count)
+
 Screenshot saving with Unix timestamp filename
+
 All events logged to logs/log.txt throughout the session
+
 Session summary printed on exit — total detections, max faces, time elapsed
+
 
 Requirements:
 
 C++17 or later
+
 OpenCV 4.x installed at D:/opencv/build (update path in CMakeLists.txt if different)
+
 CMake 3.10 or later
+
 Ninja build system
+
 Visual Studio 2022 (MSVC)
+
 
 Build Instructions:
 
@@ -31,6 +44,7 @@ set(OpenCV_DIR "D:/opencv/build")
 
 Select x64-Debug or x64-Release preset and build
 Run MyOOPProject.exe from the build output directory
+
 
 OOP Concepts Used:
 

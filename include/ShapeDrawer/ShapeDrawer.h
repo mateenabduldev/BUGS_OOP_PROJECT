@@ -24,7 +24,7 @@ public:
     void drawFaceCount(Mat& frame, int count) override;
     string getShapeName() const override;
 };
-
+//.
 class CircleDrawer : public IShapeDrawer {
 private:
     Scalar color;

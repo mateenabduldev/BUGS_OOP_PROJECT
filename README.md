@@ -79,5 +79,3 @@ Run MyOOPProject.exe from the build output directory
 **Static Members** — Utils::saveScreenshot() and Utils::drawFPS() are static. No object needed, called directly as Utils::saveScreenshot(frame).
 
 **Destructors** — Application::~Application() logs the closing event and calls detector.printSummary(). CameraManager::~CameraManager() releases the VideoCapture resource.. 
-
-//changed
